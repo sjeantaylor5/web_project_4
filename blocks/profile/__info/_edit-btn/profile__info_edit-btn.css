@@ -1,1 +1,10 @@
 @import url(./_img/profile__info_edit-btn_img.css);
+.profile__info_edit-btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #FFF;
+    margin-top: 32px;
+    margin-left: 18px;
+    padding: 0;
+    display: flex;
+}

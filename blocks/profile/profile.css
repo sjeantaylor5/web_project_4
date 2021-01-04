@@ -1,3 +1,10 @@
 @import url(./__add-btn/profile__info_add-btn.css);
 @import url(./__avatar/profile__avatar.css);
 @import url(./__info/profile__info.css);
+.profile {
+    max-width: calc(1280px - (200px*2));
+    max-height: 120px;
+    margin: 0 auto 50px auto;
+    padding: 0;
+    display: flex;
+}

@@ -1,0 +1,11 @@
+@import url(./_img/profile__info_add-btn_img.css);
+.profile__info_add-btn {
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-self: center;
+    margin-left: auto;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+}
