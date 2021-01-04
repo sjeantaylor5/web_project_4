@@ -1,1 +1,6 @@
 @import url(./__vector/header__vector.css);
+.header {
+    max-width: calc(1280px - (200px*2));
+    margin: 0 auto 40px auto;
+    border-bottom: 1px solid #545454;
+}
