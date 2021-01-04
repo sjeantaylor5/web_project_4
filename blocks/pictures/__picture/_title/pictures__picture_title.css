@@ -1,0 +1,10 @@
+.pictures__picture_title {
+    color: #000;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 900;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 21px;
+    margin-right: 15px;
+}

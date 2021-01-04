@@ -1,3 +1,10 @@
-@import url(./__picture/_image/pictures__picture_image.css);
-@import url(./__picture/_like/pictures__picture_like.css);
-@import url(./__picture/_title/pictures__picture_title.css);
+@import url(./__picture/pictures__picture.css);
+.pictures {
+    max-width: calc(1280px - (200px*2));
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 17px;
+    grid-row-gap: 20px;
+    margin: 51px auto 66px auto;
+    padding: 0;
+}

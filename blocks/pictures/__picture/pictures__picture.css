@@ -1,0 +1,7 @@
+@import url(./_image/pictures__picture_image.css);
+@import url(./_like/pictures__picture_like.css);
+@import url(./_title/pictures__picture_title.css);
+.pictures__picture {
+    background-color: #FFF;
+    border-radius: 10px;
+}
