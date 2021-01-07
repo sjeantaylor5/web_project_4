@@ -5,6 +5,5 @@
     font-weight: 900;
     display: flex;
     justify-content: space-between;
-    margin-left: 21px;
-    margin-right: 15px;
+    margin: 25px 0 0 21px;
 }
