@@ -3,8 +3,15 @@
 @import url(./__info/profile__info.css);
 .profile {
     max-width: calc(1280px - (200px*2));
-    max-height: 120px;
     margin: 0 auto 50px auto;
     padding: 0;
     display: flex;
+}
+
+@media screen and (max-width: 1023px) {
+    .profile {
+        margin-bottom: 36px;
+        max-width: calc(320px - (19px*2));
+        display: block;
+    }
 }

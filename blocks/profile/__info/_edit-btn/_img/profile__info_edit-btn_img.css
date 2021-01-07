@@ -5,3 +5,10 @@
     margin: auto;
     padding: 0;
 }
+
+@media screen and (max-width: 1023px) {
+    .profile__info_edit-btn_img {
+        width: 7.5px;
+        height: 7.5px;
+    }
+}
