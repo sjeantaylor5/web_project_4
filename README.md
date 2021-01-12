@@ -1,16 +1,24 @@
-# Project 4: Around The U.S.
+# Project 4: Around The U.S. Profile
 
-### Overview
+### Techniques used:
+* JavaScript
+* Interactive buttons
+* Ellipsis rule
+* BEM block file structure
+* Background colors
+* @media rules
+* Popup window
+* Popup modifier
+* Overlay
+* Hover rules
+* Grid layouts
+* Calc functions
+* Adaptive for all devices!
 
-* Figma
-* Images
+**About the Project**
 
-**Figma**
+This is an adaptive, responsive and interactive webpage that shows you all different places that the user have been. Using a grid layout structure all of the pictures are uploaded in an order very similar to a social media page (ie. Instagram). Just like Instagram or other social media's, such as Facebook, you can add captions to the pictures on your page to show viewers where the picture was taken. Using Javascript we can use the edit profile button to edit the name and the about me description, making it unique to every user. As a viewer of the webpage, to show your appreciation, you can also "like" the beautiful pictures by clicking on the hearts located next to the name of where the picture was taken. 
 
-* [Link to the project in Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+**GitHub**
 
-**Images**
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!
+* [Link to the ptoject on GitHub](https://sjeantaylor5.github.io/web_project_4/)
