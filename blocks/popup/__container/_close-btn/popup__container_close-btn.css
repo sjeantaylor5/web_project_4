@@ -1,25 +1,23 @@
-@import url(./_img/popup__container_close-btn_img.css);
-.popup__container_close-btn {
-    position: fixed;
-    background-color: #000;
-    cursor: pointer;
-    border: none;
-    width: 40px;
-    height: 40px;
-    margin-top: -40px;
-    margin-left: 420px;
-    transition: opacity 1s linear 0s;
-}
-
-.popup__container_close-btn:hover {
-    opacity: 0.6;
-}
-
-@media screen and (max-width: 1023px) {
-    .popup__container_close-btn {
-        width: 26px;
-        height: 26px;
-        margin-top: -40px;
-        margin-left: 250px;
-    }
-}
+                        @import url(./_img/popup__container_close-btn_img.css);
+                    .popup__container_close-btn {
+                        background-color: #000;
+                        position: fixed;
+                        cursor: pointer;
+                        border: none;
+                        width: 0px;
+                        height: 0px;
+                        margin-top: -40px;
+                        margin-left: 420px;
+                        padding: 0;
+                        transition: opacity 1s linear 0s;
+                    }
+                    
+                    .popup__container_close-btn:hover {
+                        opacity: 0.6;
+                    }
+                    
+                    @media screen and (max-width: 1023px) {
+                        .popup__container_close-btn {
+                            margin-top: -40px;
+                            margin-left: 250px;
+                        }

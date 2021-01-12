@@ -6,7 +6,6 @@
 .popup__container {
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     background-color: #FFF;
-    color: #000;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -14,6 +13,7 @@
     height: 330px;
     transform: translate(-50%, -50%);
     border-radius: 10px;
+    z-index: 2;
 }
 
 @media screen and (max-width: 1023px) {
