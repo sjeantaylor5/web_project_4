@@ -1,5 +1,4 @@
-@import url(./_img/profile__info_edit-btn_img.css);
-.profile__info_edit-btn {
+.profile__edit-btn {
     border: 1px solid #FFF;
     width: 24px;
     height: 24px;
@@ -12,12 +11,12 @@
     transition: opacity 1s linear 0s;
 }
 
-.profile__info_edit-btn:hover {
+.profile__edit-btn:hover {
     opacity: 0.6;
 }
 
 @media screen and (max-width: 1023px) {
-    .profile__info_edit-btn {
+    .profile__edit-btn {
         width: 18px;
         height: 18px;
         margin-top: 0;

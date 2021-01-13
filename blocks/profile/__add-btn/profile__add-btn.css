@@ -1,5 +1,4 @@
-@import url(./_img/profile__info_add-btn_img.css);
-.profile__info_add-btn {
+.profile__add-btn {
     width: 150px;
     height: 50px;
     padding: 0;
@@ -13,12 +12,12 @@
     cursor: pointer;
 }
 
-.profile__info_add-btn:hover {
+.profile__add-btn:hover {
     opacity: 0.5;
 }
 
 @media screen and (max-width: 1023px) {
-    .profile__info_add-btn {
+    .profile__add-btn {
         width: 282px;
         margin: 36px auto 0 auto;
     }

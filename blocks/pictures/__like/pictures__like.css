@@ -1,4 +1,4 @@
-.pictures__picture_like {
+.pictures__like {
     transition: opacity 1s linear 0s;
     cursor: pointer;
     position: relative;
@@ -9,6 +9,6 @@
     height: 18px;
 }
 
-.pictures__picture_like:hover {
+.pictures__like:hover {
     opacity: 0.5;
 }

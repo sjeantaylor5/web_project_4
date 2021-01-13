@@ -1,4 +1,7 @@
 @import url(./__picture/pictures__picture.css);
+@import url(./__title/pictures__title.css);
+@import url(./__like/pictures__like.css);
+@import url(./__image/pictures__image.css);
 .pictures {
     max-width: calc(1280px - (200px*2));
     display: grid;

@@ -1,4 +1,4 @@
-.profile__info_edit-btn_img {
+.profile__edit-img {
     color: #FFF;
     width: 10px;
     height: 10px;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .profile__info_edit-btn_img {
+    .profile__edit-img {
         width: 7.5px;
         height: 7.5px;
     }

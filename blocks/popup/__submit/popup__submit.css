@@ -1,4 +1,4 @@
-.popup__container_submit {
+.popup__submit {
     background-color: #000;
     color: #FFF;
     width: 358px;
@@ -13,12 +13,12 @@
     transition: opacity 1s linear 0s;
 }
 
-.popup__container_submit:hover {
+.popup__submit:hover {
     opacity: 0.8;
 }
 
 @media screen and (max-width: 1023px) {
-    .popup__container_submit {
+    .popup__submit {
         margin: 45px 22px 25px 22px;
         width: 238px;
         height: 46px;

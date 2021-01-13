@@ -1,4 +1,4 @@
-.profile__info_explorer {
+.profile__explorer {
     font-weight: 400;
     font-size: 18px;
     line-height: 1.2;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .profile__info_explorer {
+    .profile__explorer {
         width: 282px;
         text-align: center;
         font-size: 14px;
