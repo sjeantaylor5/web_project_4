@@ -21,4 +21,4 @@ This is an adaptive, responsive and interactive webpage that shows you all diffe
 
 **GitHub**
 
-* [Link to the ptoject on GitHub](https://sjeantaylor5.github.io/web_project_4/)
+* [Link to the project on GitHub](https://sjeantaylor5.github.io/web_project_4/)
