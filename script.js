@@ -1,12 +1,12 @@
-const popup = document.getElementById('editProfile');
-const editButton = document.querySelector('.profile__info_edit-btn');
-const submitButton = document.querySelector('.popup__container_submit');
-const closeButton = document.querySelector('.popup__container_close-btn');
-const nameInput = document.querySelector('.popup__container_field-one');
-const aboutInput = document.querySelector('.popup__container_field-two');
-const headerName = document.querySelector('.profile__info_name-title');
-const aboutMe = document.querySelector('.profile__info_explorer');
-const pictureLike = document.querySelector('.pictures');
+let popup = document.getElementById('editProfile');
+let editButton = document.querySelector('.profile__info_edit-btn');
+let submitButton = document.querySelector('.popup__container_submit');
+let closeButton = document.querySelector('.popup__container_close-btn');
+let nameInput = document.querySelector('.popup__container_field-one');
+let aboutInput = document.querySelector('.popup__container_field-two');
+let headerName = document.querySelector('.profile__info_name-title');
+let aboutMe = document.querySelector('.profile__info_explorer');
+let pictureLike = document.querySelector('.pictures');
 
 editButton.addEventListener('click', openPopup);
 closeButton.addEventListener('click', closePopup);
@@ -24,8 +24,8 @@ function closePopup() {
 
 function submitInput(event) {
     event.preventDefault();
-    const name = nameInput.value;
-    const about = aboutInput.value;
+    let name = nameInput.value;
+    let about = aboutInput.value;
     headerName.innerText = name;
     aboutMe.innerText = about;
     nameInput.value = '';
@@ -34,7 +34,7 @@ function submitInput(event) {
 }
 
 function toggleLike(event) {
-    const element = event.target;
+    let element = event.target;
     if (element.alt === "Heart") {
         if (element.src.includes("like-button.svg")) {
             element.src = "./images/active-like.svg";
