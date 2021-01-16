@@ -2,3 +2,10 @@
     color: #fff;
     margin: auto;
 }
+
+@media screen and (max-width: 1023px) {
+    .profile__add-img {
+        width: 16px;
+        height: 16px;
+    }
+}

@@ -9,3 +9,10 @@
         margin-left: 27px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .header__vector {
+        width: 126px;
+        height: 24px;
+    }
+}

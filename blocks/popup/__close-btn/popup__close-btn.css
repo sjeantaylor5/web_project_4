@@ -5,10 +5,10 @@
     border: none;
     width: 0px;
     height: 0px;
-    margin-top: -40px;
-    margin-left: 420px;
+    margin-top: -75px;
+    margin-left: 425px;
     padding: 0;
-    transition: opacity 1s linear 0s;
+    transition: opacity 0.3s linear 0s;
 }
 
 .popup__close-btn:hover {
@@ -17,6 +17,6 @@
 
 @media screen and (max-width: 1023px) {
     .popup__close-btn {
-        margin-left: 250px;
+        margin-left: 245px;
     }
 }
