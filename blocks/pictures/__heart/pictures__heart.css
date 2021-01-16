@@ -1,0 +1,11 @@
+.pictures__heart {
+    transition: opacity 1s linear 0s;
+    margin: 0 15px 5px 0;
+    padding: 0;
+    width: 20px;
+    height: 18px;
+}
+
+.pictures__heart:hover {
+    opacity: 0.5;
+}

@@ -10,18 +10,6 @@
 
 <body>
     <div class="page">
-        <div class="popup" id="editProfile">
-            <div class="popup__overlay"></div>
-            <form class="popup__container">
-                <button class="popup__close-btn" type="button"><img class="popup__close-img" src="./images/Close-button.svg" alt="Close Button"></button>
-                <h1 class="popup__title">Edit Profile</h1>
-                <label for="name"></label>
-                <input class="popup__name-input" type="text" placeholder="Name" name="name" id="name">
-                <label for="description"></label>
-                <input class="popup__about-input" type="text" placeholder="About me" name="description" id="description">
-                <button type="submit" class="popup__submit">Save</button>
-            </form>
-        </div>
         <header class="header">
             <img class="header__vector" src="./images/image.svg" alt="Around the United States">
         </header>
@@ -29,7 +17,7 @@
             <section class="profile">
                 <img class="profile__avatar" src="./images/avatar.jpeg" alt="Cousteau Picture">
                 <div class="profile__info">
-                    <h2 class="profile__title">Jacques Cousteau</h2>
+                    <h1 class="profile__title">Jacques Cousteau</h1>
                     <button class="profile__edit-btn" type="button">
                         <img class="profile__edit-img" src="./images/edit-button.svg" alt="Edit Button">
                     </button>
@@ -42,39 +30,50 @@
             <section class="pictures">
                 <div class="pictures__picture">
                     <img class="pictures__image" src="./images/Connecticut.jpg" alt="Connecticut Railroad">
-                    <p class="pictures__title">Hartford, CT</p>
-                    <img class="pictures__like" src="./images/like-button.svg" alt="Heart">
+                    <h2 class="pictures__title">Hartford, CT</h2>
+                    <button class="pictures__like" type="button"><img class="pictures__heart" src="./images/like-button.svg" alt="Heart"></button>
                 </div>
                 <div class="pictures__picture">
                     <img class="pictures__image" src="./images/DC.jpg" alt="The Lincoln Memorial">
-                    <p class="pictures__title">Lincoln Memorial, D.C.</p>
-                    <img class="pictures__like" src="./images/like-button.svg" alt="Heart">
+                    <h2 class="pictures__title">Lincoln Memorial, D.C.</h2>
+                    <button class="pictures__like" type="button"><img class="pictures__heart" src="./images/like-button.svg" alt="Heart"></button>
                 </div>
                 <div class="pictures__picture">
                     <img class="pictures__image" src="./images/LakeTahoe.jpg" alt="Lake Tahoe">
-                    <p class="pictures__title">Lake Tahoe, NV</p>
-                    <img class="pictures__like" src="./images/like-button.svg" alt="Heart">
+                    <h2 class="pictures__title">Lake Tahoe, NV</h2>
+                    <button class="pictures__like" type="button"><img class="pictures__heart" src="./images/like-button.svg" alt="Heart"></button>
                 </div>
                 <div class="pictures__picture">
                     <img class="pictures__image" src="./images/PearlHarbor.jpg" alt="Pearl Harbor">
-                    <p class="pictures__title">Pearl Harbor, HI</p>
-                    <img class="pictures__like" src="./images/like-button.svg" alt="Heart">
+                    <h2 class="pictures__title">Pearl Harbor, HI</h2>
+                    <button class="pictures__like" type="button"><img class="pictures__heart" src="./images/like-button.svg" alt="Heart"></button>
                 </div>
                 <div class="pictures__picture">
                     <img class="pictures__image" src="./images/SanDiego.jpg" alt="San Diego Coast">
-                    <p class="pictures__title">San Diego, CA</p>
-                    <img class="pictures__like" src="./images/like-button.svg" alt="Heart">
+                    <h2 class="pictures__title">San Diego, CA</h2>
+                    <button class="pictures__like" type="button"><img class="pictures__heart" src="./images/like-button.svg" alt="Heart"></button>
                 </div>
                 <div class="pictures__picture">
                     <img class="pictures__image" src="./images/ChicagoBean.jpg" alt="Chicago The Bean">
-                    <p class="pictures__title">Chicago, IL</p>
-                    <img class="pictures__like" src="./images/like-button.svg" alt="Heart">
+                    <h2 class="pictures__title">Chicago, IL</h2>
+                    <button class="pictures__like" type="button"><img class="pictures__heart" src="./images/like-button.svg" alt="Heart"></button>
                 </div>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Around The U.S.</p>
         </footer>
+        <div class="popup" id="editProfile">
+            <form action="" method="GET" class="popup__container" name="profileForm">
+                <div class="popup__container">
+                    <button class="popup__close-btn" type="button"><img class="popup__close-img" src="./images/Close-button.svg" alt="Close Button"></button>
+                    <h3 class="popup__title">Edit Profile</h3>
+                    <input class="popup__name-input" type="text" placeholder="Name" name="name">
+                    <input class="popup__about-input" type="text" placeholder="About me" name="description">
+                    <button type="submit" class="popup__submit">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>

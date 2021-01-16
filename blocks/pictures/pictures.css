@@ -1,5 +1,6 @@
 @import url(./__picture/pictures__picture.css);
 @import url(./__title/pictures__title.css);
+@import url(./__heart/pictures__heart.css);
 @import url(./__like/pictures__like.css);
 @import url(./__image/pictures__image.css);
 .pictures {
