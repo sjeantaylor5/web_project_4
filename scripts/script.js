@@ -1,6 +1,6 @@
 let popup = document.querySelector('.popup');
+let editForm = document.querySelector('.popup__container');
 let editButton = document.querySelector('.profile__edit-btn');
-let submitButton = document.querySelector('.popup__submit');
 let closeButton = document.querySelector('.popup__close-btn');
 let nameInput = document.querySelector('.popup__name-input');
 let aboutInput = document.querySelector('.popup__about-input');
@@ -9,6 +9,8 @@ let aboutMe = document.querySelector('.profile__explorer');
 
 function openPopup() {
     popup.classList.add('popup_opened');
+    nameInput.value = headerName.innerText;
+    aboutInput.value = aboutMe.innerText;
 }
 
 function closePopup() {
@@ -24,4 +26,4 @@ function submitInput(event) {
 
 editButton.addEventListener('click', openPopup);
 closeButton.addEventListener('click', closePopup);
-submitButton.addEventListener('click', submitInput);
+editForm.addEventListener('submit', submitInput);
