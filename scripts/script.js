@@ -8,9 +8,9 @@ let headerName = document.querySelector('.profile__title');
 let aboutMe = document.querySelector('.profile__explorer');
 
 function openPopup() {
-    popup.classList.add('popup_opened');
     nameInput.value = headerName.innerText;
     aboutInput.value = aboutMe.innerText;
+    popup.classList.add('popup_opened');
 }
 
 function closePopup() {
