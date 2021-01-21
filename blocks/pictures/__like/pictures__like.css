@@ -1,11 +1,17 @@
 .pictures__like {
+    background: url(../../../images/like-button.svg) center no-repeat;
+    background-size: 100%;
     cursor: pointer;
-    position: relative;
     display: inline-block;
-    padding: 0;
-    width: 0;
-    height: 0;
     border: none;
-    background: none;
     outline: none;
+    transition: opacity 0.3s linear 0s;
+    margin: 0 15px 5px 0;
+    padding: 0;
+    width: 24px;
+    height: 22px;
+}
+
+.pictures__like:hover {
+    opacity: 0.5;
 }
