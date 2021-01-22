@@ -1,6 +1,8 @@
 .image__close-btn {
     background-color: #000;
-    position: fixed;
+    border: none;
+    outline: none;
+    position: relative;
     cursor: pointer;
     border: none;
     width: 0px;

@@ -1,5 +1,6 @@
 @import url(./__close-btn/image__close-btn.css);
 @import url(./__close-img/image__close-img.css);
+@import url(./__title/image__title.css);
 .image {
     display: none;
     background-color: rgba(0, 0, 0, 0.5);

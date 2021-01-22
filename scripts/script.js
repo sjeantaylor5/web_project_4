@@ -1,4 +1,5 @@
 const popup = document.querySelector('.popup');
+const image = document.querySelector('.image');
 const addpic = document.querySelector('.popup_type_addpic');
 const editForm = document.querySelector('.popup__container');
 const editButton = document.querySelector('.profile__edit-btn');
@@ -73,6 +74,7 @@ function createCard(src, alt, text) {
 
     trashButton.addEventListener('click', deleteCard);
     likeButton.addEventListener('click', toggleButton);
+    linkImage.addEventListener('click', imagePopup);
 
     cardBlock.append(...[trashButton, linkImage, titleName, likeButton]);
     return cardBlock;
@@ -87,6 +89,29 @@ function openPopup() {
 
 function openAddpic() {
     addpic.classList.add('popup_opened');
+}
+
+function openImagePopup() {
+    image.classList.add('image_opened');
+}
+
+function imagePopup(event) {
+    const pic = event.target;
+    const card = event.target.parentElement;
+    const src = pic.getAttribute('src');
+    const alt = pic.getAttribute('alt');
+    const text = card.querySelector('.image__title').innerText;
+    const popupImage = document.querySelector('.image__popup');
+
+    popupImage.setAttribute('src', src);
+    popupImage.setAttribute('alt', alt);
+
+    const popupTitle = document.querySelector('.image__title');
+    popupTitle.innerText = text;
+}
+
+function closeImage() {
+    image.classList.remove('image_opened');
 }
 
 function closePopup() {
