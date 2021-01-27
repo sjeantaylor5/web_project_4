@@ -27,19 +27,20 @@
                     <img class="profile__add-img" src="./images/add-button.svg" alt="Plus sign">
                 </button>
             </section>
-            <template class="pictures">
-                <!--This section is a placeholder for initalCards-->
-            </template>
+            <section class="pictures">
+                <ul class="pictures__list">
+                </ul>
+            </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Around The U.S.</p>
         </footer>
-        <div class="popup">
+        <div class="popup popup_type_profile">
             <form action="#" method="POST" class="popup__container" name="profileForm">
                 <button class="popup__close-btn" type="button"><img class="popup__close-img" src="./images/Close-button.svg" alt="Close Button"></button>
                 <h3 class="popup__title">Edit profile</h3>
-                <input class="popup__name-input" type="text" placeholder="Name" name="name">
-                <input class="popup__about-input" type="text" placeholder="About me" name="description">
+                <input class="popup__name-input" type="text" placeholder="Name" name="name" required>
+                <input class="popup__about-input" type="text" placeholder="About me" name="description" required>
                 <button type="submit" class="popup__submit">Save</button>
             </form>
         </div>
@@ -47,8 +48,8 @@
             <form action="#" method="POST" class="popup__container popup__container_type_addpic" name="addForm">
                 <button class="popup__close-btn popup__close-btn_type_addpic" type="button"><img class="popup__close-img popup__close-img_type_addpic" src="./images/Close-button.svg" alt="Close Button"></button>
                 <h3 class="popup__title popup__title_type_addpic">New place</h3>
-                <input class="popup__name-input popup__name-input_type_addpic" type="text" placeholder="Title" name="title">
-                <input class="popup__about-input popup__about-input_type_addpic" type="text" placeholder="Image link" name="link">
+                <input class="popup__name-input popup__name-input_type_addpic" type="text" placeholder="Title" name="title" required>
+                <input class="popup__about-input popup__about-input_type_addpic" type="url" placeholder="Image link" name="link" required>
                 <button type="submit" class="popup__submit popup__submit_type_addpic">Create</button>
             </form>
         </div>
@@ -62,6 +63,15 @@
             </div>
         </div>
     </div>
+    <template class="card-template">
+        <li class="pictures__picture picture">
+            <button class="pictures__trash" type="button"></button>
+            <img class="pictures__image">
+            <h2 class="pictures__title"></h2>
+            <button class="pictures__like" type="button"></button>
+        </li>
+    </template>
+    <script src="./scripts/array.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 

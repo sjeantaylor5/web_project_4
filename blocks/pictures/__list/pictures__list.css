@@ -1,0 +1,16 @@
+.pictures__list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 18px;
+    grid-row-gap: 21px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1023px) {
+    .pictures__list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

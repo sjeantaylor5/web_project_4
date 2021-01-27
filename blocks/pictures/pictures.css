@@ -4,6 +4,7 @@
 @import url(./__like_active/pictures__like_active.css);
 @import url(./__image/pictures__image.css);
 @import url(./__trash/pictures__trash.css);
+@import url(./__list/pictures__list.css);
 .pictures {
     max-width: calc(1280px - (200px*2));
     display: grid;
