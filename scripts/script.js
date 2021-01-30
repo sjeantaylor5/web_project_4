@@ -29,7 +29,7 @@ function togglePopupWindow(modal) {
     modal.classList.toggle('popup_opened');
 }
 
-initialCards.forEach(data => {
+function createCardElement(src, alt, text) {
     const cardElement = picturesTemplate.cloneNode(true);
 
     const trashButton = cardElement.querySelector('.pictures__trash');
@@ -37,36 +37,9 @@ initialCards.forEach(data => {
     const titleName = cardElement.querySelector('.pictures__title');
     const likeButton = cardElement.querySelector('.pictures__like');
 
-    linkImage.src = data.src;
-    titleName.textContent = data.text;
-    linkImage.alt = data.alt;
-
-    trashButton.addEventListener('click', deleteCard);
-    likeButton.addEventListener('click', toggleButton);
-    linkImage.addEventListener('click', () => {
-        popupImage.src = data.src;
-        popupImage.alt = data.alt;
-        popupImageTitle.textContent = data.text;
-
-        togglePopupWindow(imagePopup);
-    })
-
-    list.append(cardElement);
-});
-
-function addNewCard(event) {
-    event.preventDefault();
-
-    const cardElement = picturesTemplate.cloneNode(true);
-
-    const trashButton = cardElement.querySelector('.pictures__trash');
-    const linkImage = cardElement.querySelector('.pictures__image');
-    const titleName = cardElement.querySelector('.pictures__title');
-    const likeButton = cardElement.querySelector('.pictures__like');
-
-    linkImage.src = linkInput.value;
-    linkImage.alt = titleInput.value;
-    titleName.textContent = titleInput.value;
+    linkImage.src = src;
+    linkImage.alt = alt;
+    titleName.textContent = text;
 
     trashButton.addEventListener('click', deleteCard);
     likeButton.addEventListener('click', toggleButton);
@@ -74,9 +47,24 @@ function addNewCard(event) {
     linkImage.addEventListener('click', () => {
         popupImage.src = linkImage.src;
         popupImageTitle.textContent = titleName.textContent;
+        popupImage.alt = titleName.textContent;
 
         togglePopupWindow(imagePopup);
-    })
+    });
+
+    return cardElement;
+}
+
+initialCards.forEach(data => {
+    const cardElement = createCardElement(data.src, data.alt, data.text);
+
+    list.append(cardElement);
+});
+
+function addNewCard(event) {
+    event.preventDefault();
+
+    const cardElement = createCardElement(linkInput.value, titleInput.value, titleInput.value);
 
     list.prepend(cardElement);
 
