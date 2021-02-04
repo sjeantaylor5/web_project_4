@@ -3,15 +3,15 @@
 @import url(./__close-btn/popup__close-btn.css);
 @import url(./__close-img/popup__close-img.css);
 @import url(./__input/popup__input.css);
+@import url(./__input/_type/popup__input_type_error.css);
 @import url(./__submit/popup__submit.css);
+@import url(./__submit/_disabled/popup__submit_disabled.css);
 @import url(./__title/popup__title.css);
 @import url(./__figure/popup__figure.css);
 @import url(./__image-title/popup__image-title.css);
 @import url(./__image/popup__image.css);
 @import url(./__error/_visible/popup__error_visible.css);
 @import url(./__overlay/popup__overlay.css);
-@import url(./__submit/_disabled/popup__submit_disabled.css);
-@import url(./__input/_type/popup__input_type_error.css);
 .popup {
     background-color: rgba(0, 0, 0, 0.5);
     visibility: hidden;
