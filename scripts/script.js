@@ -3,8 +3,8 @@ const list = document.querySelector('.pictures__list');
 
 const profilePopup = document.querySelector('.popup_type_profile');
 const editForm = document.querySelector('.popup__container');
-const nameInput = document.querySelector('.popup__name-input');
-const aboutInput = document.querySelector('.popup__about-input');
+const nameInput = document.getElementById('profile-name');
+const aboutInput = document.getElementById('profile-text');
 const closeButton = document.querySelector('.popup__close-btn');
 
 const editButton = document.querySelector('.profile__edit-btn');
@@ -17,8 +17,8 @@ const addForm = document.querySelector('.popup__container_type_addpic');
 const addCard = document.querySelector('.popup_type_addpic');
 const createPic = document.querySelector('.popup__submit_type_addpic');
 const closeAddButton = document.querySelector('.popup__close-btn_type_addpic');
-const titleInput = document.querySelector('.popup__name-input_type_addpic');
-const linkInput = document.querySelector('.popup__about-input_type_addpic');
+const titleInput = document.getElementById('pic-title');
+const linkInput = document.getElementById('pic-url');
 
 const imagePopup = document.querySelector('.popup_type_image');
 const popupImage = imagePopup.querySelector('.popup__image');

@@ -39,8 +39,10 @@
             <form action="#" method="POST" class="popup__container" name="profileForm">
                 <button class="popup__close-btn" type="button"><img class="popup__close-img" src="./images/Close-button.svg" alt="Close Button"></button>
                 <h3 class="popup__title">Edit profile</h3>
-                <input class="popup__name-input" type="text" placeholder="Name" name="name" required>
-                <input class="popup__about-input" type="text" placeholder="About me" name="description" required>
+                <input id="profile-name" class="popup__input" type="text" placeholder="Name" name="name" required maxlength="40" minlength="2">
+                <span id="profile-name-error" class="popup__error"></span>
+                <input id="profile-text" class="popup__input" type="text" placeholder="About me" name="description" required maxlength="200" minlength="2">
+                <span id="profile-text-error" class="popup__error"></span>
                 <button type="submit" class="popup__submit">Save</button>
             </form>
         </div>
@@ -48,8 +50,10 @@
             <form action="#" method="POST" class="popup__container popup__container_type_addpic" name="addForm">
                 <button class="popup__close-btn popup__close-btn_type_addpic" type="button"><img class="popup__close-img popup__close-img_type_addpic" src="./images/Close-button.svg" alt="Close Button"></button>
                 <h3 class="popup__title popup__title_type_addpic">New place</h3>
-                <input class="popup__name-input popup__name-input_type_addpic" type="text" placeholder="Title" name="title" required>
-                <input class="popup__about-input popup__about-input_type_addpic" type="url" placeholder="Image link" name="link" required>
+                <input id="pic-title" class="popup__input popup__input_type_addpic" type="text" placeholder="Title" name="title" required maxlength="30" minlength="1">
+                <span id="pic-title-error" class="popup__error"></span>
+                <input id="pic-url" class="popup__input popup__input_type_addpic" type="url" placeholder="Image link" name="link" required>
+                <span id="pic-url-error" class="popup__error"></span>
                 <button type="submit" class="popup__submit popup__submit_type_addpic">Create</button>
             </form>
         </div>
@@ -72,6 +76,7 @@
         </li>
     </template>
     <script src="./scripts/array.js"></script>
+    <script src="./scripts/validation.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
 
