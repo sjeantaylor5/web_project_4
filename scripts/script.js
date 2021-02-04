@@ -1,5 +1,6 @@
 const picturesTemplate = document.querySelector('.card-template').content.querySelector('.picture');
 const list = document.querySelector('.pictures__list');
+const ESC_CODE = 27;
 
 const profilePopup = document.querySelector('.popup_type_profile');
 const editForm = document.querySelector('.popup__container');
@@ -25,8 +26,13 @@ const popupImage = imagePopup.querySelector('.popup__image');
 const popupImageTitle = imagePopup.querySelector('.popup__image-title');
 const closeImageButton = imagePopup.querySelector('.popup__close-btn');
 
+const popupOverlayProfile = document.querySelector(".popup__overlay_type_profile");
+const popupOverlayAddpic = document.querySelector(".popup__overlay_type_addpic");
+const popupOverlayImage = document.querySelector(".popup__overlay_type_image");
+
 function togglePopupWindow(modal) {
     modal.classList.toggle('popup_opened');
+    document.addEventListener("keyup", handleEsc);
 }
 
 function createCardElement(src, alt, text) {
@@ -100,6 +106,16 @@ function submitInput(event) {
     togglePopupWindow(profilePopup);
 }
 
+const handleEsc = (evt) => {
+    evt.preventDefault();
+
+    const activePopup = document.querySelector(".popup_opened");
+
+    if (evt.which === ESC_CODE) {
+        togglePopupWindow(activePopup);
+    }
+}
+
 editForm.addEventListener('submit', submitInput);
 addForm.addEventListener('submit', addNewCard);
 editButton.addEventListener('click', openProfilePopup);
@@ -107,6 +123,7 @@ editButton.addEventListener('click', openProfilePopup);
 
 closeButton.addEventListener('click', () => {
     togglePopupWindow(profilePopup);
+    document.removeEventListener("keyup", handleEsc);
 });
 
 addButton.addEventListener('click', () => {
@@ -115,8 +132,22 @@ addButton.addEventListener('click', () => {
 
 closeAddButton.addEventListener('click', () => {
     togglePopupWindow(addCard);
+    document.removeEventListener("keyup", handleEsc);
 });
 
 closeImageButton.addEventListener('click', () => {
+    togglePopupWindow(imagePopup);
+    document.removeEventListener("keyup", handleEsc);
+});
+
+popupOverlayProfile.addEventListener('click', () => {
+    togglePopupWindow(profilePopup);
+});
+
+popupOverlayAddpic.addEventListener('click', () => {
+    togglePopupWindow(addCard);
+});
+
+popupOverlayImage.addEventListener('click', () => {
     togglePopupWindow(imagePopup);
 });
