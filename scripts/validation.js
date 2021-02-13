@@ -15,22 +15,27 @@ function hideErrorMessage(input, form, { errorClass, inputErrorClass, ...rest })
 }
 
 function checkInputValidity(input, form, rest) {
-    if (input.validity.valid) {
-        hideErrorMessage(input, form, rest);
+    if (!input.validity.valid) {
+        showErrorMessage(input, input.validationMessage, form, rest);
     } else {
-        showErrorMessage(input, form, rest);
+        hideErrorMessage(input, form, rest);
     }
 }
 
-function toggleButtonState(inputs, button, { inactiveButtonClass, ...rest }) {
-    const isValid = inputs.every((input) => input.validity.valid);
+function hasInvalidInput(inputs) {
+    return inputs.some((input) => {
+        return !input.validity.valid;
+    });
+}
 
-    if (isValid) {
-        button.classList.remove(inactiveButtonClass);
-        button.removeAttribute("disabled");
-    } else {
+function toggleButtonState(inputs, button, { inactiveButtonClass, ...rest }) {
+
+    if (hasInvalidInput(inputs)) {
         button.classList.add(inactiveButtonClass);
-        button.setAttribute("disabled", "");
+        button.disabled = true;
+    } else {
+        button.classList.remove(inactiveButtonClass);
+        button.disabled = false;
     }
 }
 
