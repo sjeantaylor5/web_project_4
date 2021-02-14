@@ -1,15 +1,6 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 
-const defaultConfig = {
-    formSelector: ".popup__container",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__submit",
-    inactiveButtonClass: "popup__submit_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible"
-}
-
 const initialCards = [{
         src: "https://images.unsplash.com/photo-1463695970743-ae65cca05743?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
         alt: "Waterfall",
@@ -41,6 +32,15 @@ const initialCards = [{
         text: "Pearl Harbor"
     }
 ];
+
+const defaultConfig = {
+    formSelector: ".popup__container",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__submit",
+    inactiveButtonClass: "popup__submit_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible"
+}
 
 const addCard = document.querySelector('.popup_type_addpic');
 const profilePopup = document.querySelector('.popup_type_profile');

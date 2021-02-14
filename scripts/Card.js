@@ -48,6 +48,7 @@ class Card {
         const trashButton = this._cardElement.querySelector('.pictures__trash');
         const imagePopup = document.querySelector('.popup_type_image');
         const linkImage = this._cardElement.querySelector('.pictures__image');
+        const titleName = this._cardElement.querySelector('.pictures__title');
         const popupImage = imagePopup.querySelector('.popup__image');
         const popupImageTitle = imagePopup.querySelector('.popup__image-title');
 
@@ -55,9 +56,9 @@ class Card {
         likeButton.addEventListener('click', this._toggleButton);
 
         linkImage.addEventListener('click', () => {
-            popupImage.src = src;
-            popupImageTitle.textContent = text;
-            popupImage.alt = alt;
+            popupImage.src = linkImage.src;
+            popupImageTitle.textContent = titleName.textContent;
+            popupImage.alt = titleName.textContent;
 
             togglePopupWindow(imagePopup);
         });

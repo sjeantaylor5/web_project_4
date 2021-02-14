@@ -10,7 +10,7 @@ class FormValidator {
     }
 
     _showErrorMessage(input) {
-        const error = this._form.querySelector(`#${input.id}-error`);
+        const error = this._form.querySelector("#" + input.id + "-error");
         error.textContent = input.validationMessage;
 
         error.classList.add(this._errorClass);
@@ -18,18 +18,18 @@ class FormValidator {
     }
 
     _hideErrorMessage(input) {
-        const error = this._form.querySelector(`#${input.id}-error`);
+        const error = this._form.querySelector("#" + input.id + "-error");
         error.textContent = "";
 
         error.classList.remove(this._errorClass);
-        this._inputSelector.classList.remove(this._inputErrorClass);
+        input.classList.remove(this._inputErrorClass);
     }
 
     _checkInputValidity(input) {
         if (!input.validity.valid) {
             this._showErrorMessage(input, input.validationMessage);
         } else {
-            this._hideErrorMessage(input);
+            this._hideErrorMessage(input, input.validationMessage);
         }
     }
 
@@ -39,8 +39,8 @@ class FormValidator {
 
         inputs.forEach((input) => {
             input.addEventListener("input", () => {
-                this._checkInputValidity();
-                this._toggleButtonState();
+                this._checkInputValidity(input, input.validationMessage);
+                this._toggleButtonState(inputs, button);
             })
         })
     }
