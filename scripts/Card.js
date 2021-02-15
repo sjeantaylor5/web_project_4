@@ -1,22 +1,4 @@
-function togglePopupWindow(modal) {
-    modal.classList.toggle('popup_opened');
-    if (modal.classList.contains('popup_opened')) {
-        document.addEventListener("keyup", handleEsc);
-    } else {
-        document.removeEventListener("keyup", handleEsc);
-    }
-}
-
-const handleEsc = (evt) => {
-    evt.preventDefault();
-
-    const ESC_CODE = 27;
-    const activePopup = document.querySelector(".popup_opened");
-
-    if (evt.which === ESC_CODE) {
-        togglePopupWindow(activePopup);
-    }
-}
+import { togglePopupWindow, handleEsc } from "./utils.js";
 
 class Card {
     constructor(data, templateSelector) {
@@ -43,25 +25,28 @@ class Card {
         likeButton.classList.toggle('pictures__like_active');
     }
 
-    _setEventListeners() {
-        const likeButton = this._cardElement.querySelector('.pictures__like');
-        const trashButton = this._cardElement.querySelector('.pictures__trash');
+    _imagePopup() {
         const imagePopup = document.querySelector('.popup_type_image');
-        const linkImage = this._cardElement.querySelector('.pictures__image');
-        const titleName = this._cardElement.querySelector('.pictures__title');
+        const linkImage = document.querySelector('.pictures__image');
+        const titleName = document.querySelector('.pictures__title');
         const popupImage = imagePopup.querySelector('.popup__image');
         const popupImageTitle = imagePopup.querySelector('.popup__image-title');
 
+        popupImage.src = linkImage.src;
+        popupImageTitle.textContent = titleName.textContent;
+        popupImage.alt = titleName.textContent;
+
+        togglePopupWindow(imagePopup);
+    }
+
+    _setEventListeners() {
+        const likeButton = this._cardElement.querySelector('.pictures__like');
+        const trashButton = this._cardElement.querySelector('.pictures__trash');
+        const linkImage = this._cardElement.querySelector('.pictures__image');
+
         trashButton.addEventListener('click', this._deleteCard);
         likeButton.addEventListener('click', this._toggleButton);
-
-        linkImage.addEventListener('click', () => {
-            popupImage.src = linkImage.src;
-            popupImageTitle.textContent = titleName.textContent;
-            popupImage.alt = titleName.textContent;
-
-            togglePopupWindow(imagePopup);
-        });
+        linkImage.addEventListener('click', this._imagePopup);
     }
 
     generateCard() {
