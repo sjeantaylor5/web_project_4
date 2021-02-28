@@ -2,6 +2,7 @@ import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
 import { togglePopupWindow, handleEsc } from "./utils.js";
 import { initialCards } from "./array.js";
+import "../pages/index.css";
 
 const defaultConfig = {
     formSelector: ".popup__container",
