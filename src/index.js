@@ -1,6 +1,9 @@
 import "./index.css";
 import FormValidator from "../scripts/FormValidator.js";
 import Card from "../scripts/Card.js";
+import Section from "../scripts/Section.js";
+import PopupWithImage from "../scripts/PopupWithImage";
+import PopupWithForm from "../scripts/PopupWithForm";
 import { togglePopupWindow, handleEsc } from "../scripts/utils.js";
 import { initialCards } from "../scripts/array.js";
 
@@ -19,17 +22,47 @@ const profilePopup = document.querySelector('.popup_type_profile');
 const addCardForm = addCard.querySelector('.popup__container');
 const profileForm = profilePopup.querySelector('.popup__container');
 
+const nameInput = document.getElementById('profile-name');
+const aboutInput = document.getElementById('profile-text');
+
 const editFormValidator = new FormValidator(defaultConfig, profileForm);
 const addFormValidator = new FormValidator(defaultConfig, addCardForm);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
+const editPopup = new PopupWithForm('.popup_type_profile');
+editPopup.setEventListeners();
+
+const addpicPopup = new PopupWithForm('.popup_type_addpic');
+addpicPopup.setEventListeners();
+
+const picturePopup = new PopupWithImage('.popup_type_image');
+picturePopup.setEventListeners();
+
+const userInfo = new UserInfo({
+    userNameSelector: nameInput,
+    userDescriptionSelector: aboutInput
+});
+
+const cardList = new Section({
+    items: initialCards,
+    renderer: (data) => {
+        const card = new Card({
+            data,
+            handleCardClick: () => {
+                picturePopup.open(data);
+            }
+        }, ".card-template");
+
+        cardList.addItem(card.generateCard());
+    }
+});
+
+
 const list = document.querySelector('.pictures__list');
 
 const editForm = document.querySelector('.popup__container');
-const nameInput = document.getElementById('profile-name');
-const aboutInput = document.getElementById('profile-text');
 const closeButton = document.querySelector('.popup__close-btn');
 
 const editButton = document.querySelector('.profile__edit-btn');
@@ -50,7 +83,12 @@ const popupOverlayAddpic = document.querySelector(".popup__overlay_type_addpic")
 const popupOverlayImage = document.querySelector(".popup__overlay_type_image");
 
 initialCards.forEach(data => {
-    const card = new Card(data, ".card-template");
+    const card = new Card({
+        data,
+        handleCardClick: (src, text) => {
+            picturePopup.open(src, text);
+        }
+    }, ".card-template");
     list.append(card.generateCard());
 });
 
@@ -63,7 +101,12 @@ function addNewCard(event) {
         text: titleInput.value
     };
 
-    const newCard = new Card(inputData, ".card-template");
+    const newCard = new Card({
+        inputData,
+        handleCardClick: (src, text) => {
+            picturePopup.open(src, text);
+        }
+    }, ".card-template");
 
     list.prepend(newCard.generateCard());
 

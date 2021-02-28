@@ -1,11 +1,12 @@
 import { togglePopupWindow, handleEsc } from "./utils.js";
 
 class Card {
-    constructor(data, templateSelector) {
+    constructor({ data, handleCardClick }, templateSelector) {
         this._text = data.text;
         this._src = data.src;
         this._alt = data.alt
         this._templateSelector = templateSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getCardTemplate() {
@@ -46,7 +47,7 @@ class Card {
 
         trashButton.addEventListener('click', this._deleteCard);
         likeButton.addEventListener('click', this._toggleButton);
-        linkImage.addEventListener('click', this._imagePopup);
+        linkImage.addEventListener('click', () => this._handleCardClick(this.text, this.src, this.alt));
     }
 
     generateCard() {
