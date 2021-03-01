@@ -1,27 +1,20 @@
-import { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } from "constants";
-
-import Card from "./Card.js";
-
 class Section {
-    constructor({ items, renderer }, containerSelector) {
-        this._initialCards = items;
+    constructor({ data, renderer }, containerSelector) {
+        this._renderedItems = data;
         this._renderer = renderer;
         this._container = document.querySelector(containerSelector);
     }
 
-    renderer() {
-        this._initialCards.forEach(data => {
-            const card = new Card({
-                data,
-                handleCardClick: (src, text) => {
-                    picturePopup.open(src, text);
-                }
-            }, ".card-template");
+    clear() {
+        this._container.innerHTML = "";
+    }
 
-            const cardElement = card.generateCard();
-            this.addItem(cardElement);
-        })
+    renderItems() {
+        this.clear();
 
+        this._renderedItems.forEach(item => {
+            this._renderer(item);
+        });
     }
 
     addItem(element) {

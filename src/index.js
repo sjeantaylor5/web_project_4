@@ -4,32 +4,46 @@ import Card from "../scripts/Card.js";
 import Section from "../scripts/Section.js";
 import PopupWithImage from "../scripts/PopupWithImage";
 import PopupWithForm from "../scripts/PopupWithForm";
-import { togglePopupWindow, handleEsc } from "../scripts/utils.js";
-import { initialCards } from "../scripts/array.js";
+import UserInfo from "../scripts/UserInfo.js";
+import {
+    initialCards,
+    defaultConfig,
+    list,
+    addCard,
+    profilePopup,
+    addCardForm,
+    profileForm,
+    nameInput,
+    aboutInput,
+    editForm,
+    closeButton,
+    editButton,
+    addButton,
+    headerName,
+    aboutMe,
+    addForm,
+    closeAddButton,
+    titleInput,
+    linkInput,
+    imagePopup,
+    closeImageButton,
+    popupOverlayProfile,
+    popupOverlayAddpic,
+    popupOverlayImage
+} from "../utils/constants.js";
 
-const defaultConfig = {
-    formSelector: ".popup__container",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__submit",
-    inactiveButtonClass: "popup__submit_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible"
-}
-
-const addCard = document.querySelector('.popup_type_addpic');
-const profilePopup = document.querySelector('.popup_type_profile');
-
-const addCardForm = addCard.querySelector('.popup__container');
-const profileForm = profilePopup.querySelector('.popup__container');
-
-const nameInput = document.getElementById('profile-name');
-const aboutInput = document.getElementById('profile-text');
+// import { togglePopupWindow, handleEsc } from "../scripts/utils.js";
 
 const editFormValidator = new FormValidator(defaultConfig, profileForm);
-const addFormValidator = new FormValidator(defaultConfig, addCardForm);
-
 editFormValidator.enableValidation();
+
+const addFormValidator = new FormValidator(defaultConfig, addCardForm);
 addFormValidator.enableValidation();
+
+const userInfo = new UserInfo({
+    userNameSelector: nameInput,
+    userDescriptionSelector: aboutInput
+});
 
 const editPopup = new PopupWithForm('.popup_type_profile');
 editPopup.setEventListeners();
@@ -40,47 +54,21 @@ addpicPopup.setEventListeners();
 const picturePopup = new PopupWithImage('.popup_type_image');
 picturePopup.setEventListeners();
 
-const userInfo = new UserInfo({
-    userNameSelector: nameInput,
-    userDescriptionSelector: aboutInput
-});
-
 const cardList = new Section({
-    items: initialCards,
-    renderer: (data) => {
-        const card = new Card({
-            data,
-            handleCardClick: () => {
-                picturePopup.open(data);
-            }
-        }, ".card-template");
+        data: items,
+        renderer: (item) => {
+            const card = new Card({
+                item,
+                handleCardClick: () => {
+                    picturePopup.open(data);
+                }
+            }, ".card-template");
 
-        cardList.addItem(card.generateCard());
-    }
-});
-
-
-const list = document.querySelector('.pictures__list');
-
-const editForm = document.querySelector('.popup__container');
-const closeButton = document.querySelector('.popup__close-btn');
-
-const editButton = document.querySelector('.profile__edit-btn');
-const addButton = document.querySelector('.profile__add-btn');
-const headerName = document.querySelector('.profile__title');
-const aboutMe = document.querySelector('.profile__explorer');
-
-const addForm = document.querySelector('.popup__container_type_addpic');
-const closeAddButton = document.querySelector('.popup__close-btn_type_addpic');
-const titleInput = document.getElementById('pic-title');
-const linkInput = document.getElementById('pic-url');
-
-const imagePopup = document.querySelector('.popup_type_image');
-const closeImageButton = imagePopup.querySelector('.popup__close-btn');
-
-const popupOverlayProfile = document.querySelector(".popup__overlay_type_profile");
-const popupOverlayAddpic = document.querySelector(".popup__overlay_type_addpic");
-const popupOverlayImage = document.querySelector(".popup__overlay_type_image");
+            cardList.addItem(card.generateCard());
+        }
+    },
+    list
+);
 
 initialCards.forEach(data => {
     const card = new Card({
