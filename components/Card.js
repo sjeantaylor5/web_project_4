@@ -1,4 +1,4 @@
-import { togglePopupWindow, handleEsc } from "./utils.js";
+//import { togglePopupWindow, handleEsc } from "./utils.js";
 
 class Card {
     constructor({ data, handleCardClick }, templateSelector) {
@@ -25,18 +25,18 @@ class Card {
         likeButton.classList.toggle('pictures__like_active');
     }
 
-    _imagePopup() {
-        const imagePopup = document.querySelector('.popup_type_image');
-        const linkImage = document.querySelector('.pictures__image');
-        const titleName = document.querySelector('.pictures__title');
-        const popupImage = imagePopup.querySelector('.popup__image');
-        const popupImageTitle = imagePopup.querySelector('.popup__image-title');
+    // _imagePopup() {
+    //     const imagePopup = document.querySelector('.popup_type_image');
+    //     const linkImage = document.querySelector('.pictures__image');
+    //     const titleName = document.querySelector('.pictures__title');
+    //     const popupImage = imagePopup.querySelector('.popup__image');
+    //     const popupImageTitle = imagePopup.querySelector('.popup__image-title');
 
-        popupImage.src = linkImage.src;
-        popupImageTitle.textContent = titleName.textContent;
+    //     popupImage.src = linkImage.src;
+    //     popupImageTitle.textContent = titleName.textContent;
 
-        togglePopupWindow(imagePopup);
-    }
+    //     togglePopupWindow(imagePopup);
+    // }
 
     _setEventListeners() {
         const likeButton = this._cardElement.querySelector('.pictures__like');

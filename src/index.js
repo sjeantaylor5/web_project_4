@@ -32,7 +32,7 @@ import {
     popupOverlayImage
 } from "../utils/constants.js";
 
-import { togglePopupWindow } from "../components/utils.js";
+//import { togglePopupWindow } from "../components/utils.js";
 
 const editFormValidator = new FormValidator(defaultConfig, profileForm);
 editFormValidator.enableValidation();
@@ -99,53 +99,53 @@ function addNewCard(event) {
     titleInput.value = "";
     linkInput.value = "";
 
-    close();
+    togglePopupWindow(addCard);
 }
 
-function openProfilePopup() {
-    nameInput.value = headerName.innerText;
-    aboutInput.value = aboutMe.innerText;
+// function openProfilePopup() {
+//     nameInput.value = headerName.innerText;
+//     aboutInput.value = aboutMe.innerText;
 
-    togglePopupWindow(profilePopup);
-}
+//     togglePopupWindow(profilePopup);
+// }
 
-function submitInput(event) {
-    event.preventDefault();
-    headerName.innerText = nameInput.value;
-    aboutMe.innerText = aboutInput.value;
+// function submitInput(event) {
+//     event.preventDefault();
+//     headerName.innerText = nameInput.value;
+//     aboutMe.innerText = aboutInput.value;
 
-    togglePopupWindow(profilePopup);
-}
+//     togglePopupWindow(profilePopup);
+// }
 
-editForm.addEventListener('submit', submitInput);
-addForm.addEventListener('submit', addNewCard);
-editButton.addEventListener('click', openProfilePopup);
+// editForm.addEventListener('submit', submitInput);
+// addForm.addEventListener('submit', addNewCard);
+// editButton.addEventListener('click', openProfilePopup);
 
 
-closeButton.addEventListener('click', () => {
-    togglePopupWindow(profilePopup);
-});
+// closeButton.addEventListener('click', () => {
+//     togglePopupWindow(profilePopup);
+// });
 
-addButton.addEventListener('click', () => {
-    togglePopupWindow(addCard);
-});
+// addButton.addEventListener('click', () => {
+//     togglePopupWindow(addCard);
+// });
 
-closeAddButton.addEventListener('click', () => {
-    togglePopupWindow(addCard);
-});
+// closeAddButton.addEventListener('click', () => {
+//     togglePopupWindow(addCard);
+// });
 
-closeImageButton.addEventListener('click', () => {
-    togglePopupWindow(imagePopup);
-});
+// closeImageButton.addEventListener('click', () => {
+//     togglePopupWindow(imagePopup);
+// });
 
-popupOverlayProfile.addEventListener('click', () => {
-    togglePopupWindow(profilePopup);
-});
+// popupOverlayProfile.addEventListener('click', () => {
+//     togglePopupWindow(profilePopup);
+// });
 
-popupOverlayAddpic.addEventListener('click', () => {
-    togglePopupWindow(addCard);
-});
+// popupOverlayAddpic.addEventListener('click', () => {
+//     togglePopupWindow(addCard);
+// });
 
-popupOverlayImage.addEventListener('click', () => {
-    togglePopupWindow(imagePopup);
-});
+// popupOverlayImage.addEventListener('click', () => {
+//     togglePopupWindow(imagePopup);
+// });
