@@ -4,7 +4,6 @@ class Card {
     constructor({ data, handleCardClick }, templateSelector) {
         this._text = data.text;
         this._src = data.src;
-        this._alt = data.alt
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
     }
@@ -35,7 +34,6 @@ class Card {
 
         popupImage.src = linkImage.src;
         popupImageTitle.textContent = titleName.textContent;
-        popupImage.alt = titleName.textContent;
 
         togglePopupWindow(imagePopup);
     }
@@ -47,7 +45,9 @@ class Card {
 
         trashButton.addEventListener('click', this._deleteCard);
         likeButton.addEventListener('click', this._toggleButton);
-        linkImage.addEventListener('click', () => this._handleCardClick(this.text, this.src, this.alt));
+        linkImage.addEventListener('click', () => {
+            this._handleCardClick(this._src, this._text)
+        });
     }
 
     generateCard() {
@@ -57,7 +57,6 @@ class Card {
         const titleName = this._cardElement.querySelector('.pictures__title');
 
         linkImage.src = this._src;
-        linkImage.alt = this._alt;
         titleName.textContent = this._text;
 
         this._setEventListeners();

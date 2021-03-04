@@ -5,13 +5,7 @@ class Section {
         this._container = document.querySelector(containerSelector);
     }
 
-    clear() {
-        this._container.innerHTML = "";
-    }
-
     renderItems() {
-        this.clear();
-
         this._renderedItems.forEach(item => {
             this._renderer(item);
         });

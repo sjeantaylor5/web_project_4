@@ -1,9 +1,9 @@
 import "./index.css";
-import FormValidator from "../components/FormValidator.js.js";
-import Card from "../components/Card.js.js";
-import Section from "../components/Section.js.js";
-import PopupWithImage from "../components/PopupWithImage";
-import PopupWithForm from "../components/PopupWithForm";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import {
     initialCards,
@@ -32,7 +32,7 @@ import {
     popupOverlayImage
 } from "../utils/constants.js";
 
-// import { togglePopupWindow, handleEsc } from "../scripts/utils.js";
+import { togglePopupWindow } from "../components/utils.js";
 
 const editFormValidator = new FormValidator(defaultConfig, profileForm);
 editFormValidator.enableValidation();
@@ -55,20 +55,18 @@ const picturePopup = new PopupWithImage('.popup_type_image');
 picturePopup.setEventListeners();
 
 const cardList = new Section({
-        data: items,
-        renderer: (item) => {
-            const card = new Card({
-                item,
-                handleCardClick: () => {
-                    picturePopup.open(data);
-                }
-            }, ".card-template");
+    data: initialCards,
+    renderer: (item) => {
+        const card = new Card({
+            item,
+            handleCardClick: () => {
+                picturePopup.open(data);
+            }
+        }, ".card-template");
 
-            cardList.addItem(card.generateCard());
-        }
-    },
-    list
-);
+        cardList.addItem(card.generateCard());
+    }
+}, );
 
 initialCards.forEach(data => {
     const card = new Card({
@@ -101,7 +99,7 @@ function addNewCard(event) {
     titleInput.value = "";
     linkInput.value = "";
 
-    togglePopupWindow(addCard);
+    close();
 }
 
 function openProfilePopup() {
