@@ -4,6 +4,7 @@ class Popup {
     constructor(popupSelector) {
         this._popupElement = document.querySelector(popupSelector);
         this._handleEscClose = this._handleEscClose.bind(this);
+        this.close = this.close.bind(this);
     }
 
     open() {
@@ -24,10 +25,10 @@ class Popup {
 
     setEventListeners() {
         this._popupElement.addEventListener("click", (evt) => {
-            if (evt.target.classList.contains('popup__close-btn') || !evt.target.closest('popup__container')) {
+            if (evt.target.classList.contains('popup__close-img') || (evt.target.classList.contains('popup__overlay'))) {
                 this.close();
             }
-        })
+        });
     }
 }
 
