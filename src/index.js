@@ -21,6 +21,16 @@ editFormValidator.enableValidation();
 const addFormValidator = new FormValidator(defaultConfig, addCardForm);
 addFormValidator.enableValidation();
 
+initialCards.forEach(data => {
+    const card = new Card({
+        data,
+        handleCardClick: (src, text) => {
+            picturePopup.open(src, text);
+        }
+    }, ".card-template");
+    list.append(card.generateCard());
+});
+
 const userInfo = new UserInfo({
     userNameSelector: '.profile__title',
     userDescriptionSelector: '.profile__explorer'
@@ -72,13 +82,3 @@ const cardList = new Section({
         cardList.addItem(card.generateCard());
     }
 }, );
-
-initialCards.forEach(data => {
-    const card = new Card({
-        data,
-        handleCardClick: (src, text) => {
-            picturePopup.open(src, text);
-        }
-    }, ".card-template");
-    list.append(card.generateCard());
-});
