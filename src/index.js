@@ -8,7 +8,6 @@ import UserInfo from "../components/UserInfo.js";
 import {
     initialCards,
     defaultConfig,
-    list,
     addCardForm,
     profileForm,
     editButton,
@@ -21,16 +20,6 @@ editFormValidator.enableValidation();
 const addFormValidator = new FormValidator(defaultConfig, addCardForm);
 addFormValidator.enableValidation();
 
-initialCards.forEach(data => {
-    const card = new Card({
-        data,
-        handleCardClick: (src, text) => {
-            picturePopup.open(src, text);
-        }
-    }, ".card-template");
-    list.append(card.generateCard());
-});
-
 const userInfo = new UserInfo({
     userNameSelector: '.profile__title',
     userDescriptionSelector: '.profile__explorer'
@@ -41,8 +30,7 @@ const editPopup = new PopupWithForm({
     handleFormSubmit: ({ name, description }) => {
         userInfo.setUserInfo(name, description)
     },
-    openButton: editButton,
-    handleClose: (popupElement) => {}
+    openButton: editButton
 });
 editPopup.setEventListeners();
 
@@ -55,14 +43,10 @@ const addpicPopup = new PopupWithForm({
                 picturePopup.open(src, text);
             }
         }, ".card-template");
-        list.prepend(card.generateCard());
+
+        cardList.prependItem(card.generateCard());
     },
-    openButton: addButton,
-    handleClose: (popupElement) => {
-        popupElement.querySelectorAll('.popup__input').forEach((input) => {
-            input.value = "";
-        })
-    }
+    openButton: addButton
 });
 addpicPopup.setEventListeners();
 
@@ -81,4 +65,16 @@ const cardList = new Section({
 
         cardList.addItem(card.generateCard());
     }
-}, );
+
+}, ".pictures__list");
+
+initialCards.forEach(data => {
+    const card = new Card({
+        data,
+        handleCardClick: (src, text) => {
+            picturePopup.open(src, text);
+        }
+    }, ".card-template");
+
+    cardList.addItem(card.generateCard());
+});

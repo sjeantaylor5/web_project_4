@@ -31,9 +31,7 @@ export const defaultConfig = {
     inactiveButtonClass: "popup__submit_disabled",
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__error_visible"
-}
-
-export const list = document.querySelector('.pictures__list');
+};
 
 export const addCard = document.querySelector('.popup_type_addpic');
 export const profilePopup = document.querySelector('.popup_type_profile');

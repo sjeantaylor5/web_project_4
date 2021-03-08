@@ -37,12 +37,19 @@ class FormValidator {
         const inputs = Array.from(this._form.querySelectorAll(this._inputSelector));
         const button = this._form.querySelector(this._submitButtonSelector);
 
+        this._form.addEventListener('reset', () => {
+            inputs.forEach((inputElement) => {
+                this._hideErrorMessage(inputElement)
+            })
+            this._toggleButtonState(inputs, button);
+        });
+
         inputs.forEach((input) => {
             input.addEventListener("input", () => {
                 this._checkInputValidity(input, input.validationMessage);
                 this._toggleButtonState(inputs, button);
             })
-        })
+        });
     }
 
     _hasInvalidInput(inputs) {
