@@ -55,11 +55,11 @@ picturePopup.setEventListeners();
 
 const cardList = new Section({
     data: initialCards,
-    renderer: (item) => {
+    renderer: (data) => {
         const card = new Card({
-            item,
-            handleCardClick: () => {
-                picturePopup.open(data);
+            data,
+            handleCardClick: (src, text) => {
+                picturePopup.open(src, text);
             }
         }, ".card-template");
 
@@ -68,13 +68,4 @@ const cardList = new Section({
 
 }, ".pictures__list");
 
-initialCards.forEach(data => {
-    const card = new Card({
-        data,
-        handleCardClick: (src, text) => {
-            picturePopup.open(src, text);
-        }
-    }, ".card-template");
-
-    cardList.addItem(card.generateCard());
-});
+cardList.renderItems();
