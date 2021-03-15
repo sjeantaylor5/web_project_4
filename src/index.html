@@ -14,13 +14,16 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__avatar" src="../images/avatar.jpeg" alt="Cousteau Picture">
+                <button class="profile__avatar_btn" type="button">
+                   <img class="profile__avatar" src="../images/avatar.jpeg" alt="Cousteau Picture">
+                   <img class="profile__avatar_img" src="../images/edit-button.svg" alt="Edit Button">
+                </button>
                 <div class="profile__info">
-                    <h1 class="profile__title">Jacques Cousteau</h1>
+                    <h1 class="profile__title"></h1>
                     <button class="profile__edit-btn" type="button">
                         <img class="profile__edit-img" src="../images/edit-button.svg" alt="Edit Button">
                     </button>
-                    <p class="profile__explorer">Explorer</p>
+                    <p class="profile__explorer"></p>
                 </div>
                 <button class="profile__add-btn" type="button">
                     <img class="profile__add-img" src="../images/add-button.svg" alt="Plus sign">
@@ -48,15 +51,27 @@
                 <button type="submit" class="popup__submit">Save</button>
             </form>
         </div>
+        <div class="popup popup_type_avatar">
+            <div class="popup__overlay popup__overlay_type_avatar"></div>
+            <form action="#" method="POST" class="popup__container popup__container_type_avatar" name="profileAvatar">
+                <button class="popup__close-btn" type="button"><img class="popup__close-img" src="../images/Close-button.svg" alt="Close Button"></button>
+                <h3 class="popup__title">Change profile picture</h3>
+
+                <input id="pic-url" class="popup__input popup__input_type_avatar" type="url" placeholder="Image link" name="link" required>
+                <span id="pic-url-error" class="popup__error"></span>
+
+                <button type="submit" class="popup__submit">Save</button>
+            </form>
+        </div>
         <div class="popup popup_type_addpic">
             <div class="popup__overlay popup__overlay_type_addpic"></div>
             <form action="#" method="POST" class="popup__container popup__container_type_addpic" name="addForm">
                 <button class="popup__close-btn popup__close-btn_type_addpic" type="button"><img class="popup__close-img popup__close-img_type_addpic" src="../images/Close-button.svg" alt="Close Button"></button>
                 <h3 class="popup__title popup__title_type_addpic">New place</h3>
-                <input id="pic-title" class="popup__input popup__input_type_addpic" type="text" placeholder="Title" name="text" required maxlength="30" minlength="1">
+                <input id="pic-title" class="popup__input popup__input_type_addpic" type="text" placeholder="Title" name="name" required maxlength="30" minlength="1">
                 <span id="pic-title-error" class="popup__error"></span>
 
-                <input id="pic-url" class="popup__input popup__input_type_addpic" type="url" placeholder="Image link" name="src" required>
+                <input id="pic-url" class="popup__input popup__input_type_addpic" type="url" placeholder="Image link" name="link" required>
                 <span id="pic-url-error" class="popup__error"></span>
 
                 <button type="submit" class="popup__submit popup__submit_type_addpic popup__submit_disabled">Create</button>
@@ -71,6 +86,14 @@
                     <figcaption class="popup__image-title"></figcaption>
                 </figure>
             </div>
+        </div>
+        <div class="popup popup_type_delete">
+            <div class="popup__overlay popup__overlay_type_delete"></div>
+            <form action="#" method="POST" class="popup__container popup__container_type_delete" name="deleteCard">
+                <button class="popup__close-btn" type="button"><img class="popup__close-img" src="../images/Close-button.svg" alt="Close Button"></button>
+                <h3 class="popup__title">Are you sure?</h3>
+                <button type="submit" class="popup__submit">Yes</button>
+            </form>
         </div>
     </div>
     <template class="card-template">

@@ -1,9 +1,15 @@
 class Card {
-    constructor({ data, handleCardClick }, templateSelector) {
-        this._text = data.text;
-        this._src = data.src;
+    constructor({ data, handleCardClick, handleDeleteCardClick }, templateSelector) {
+        this._name = data.name;
+        this._link = data.link;
+        this._id = data.id;
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
+        this._handleDeleteCardClick = handleDeleteCardClick;
+    }
+
+    id() {
+        return this._id;
     }
 
     _getCardTemplate() {
@@ -28,10 +34,15 @@ class Card {
         const trashButton = this._cardElement.querySelector('.pictures__trash');
         const linkImage = this._cardElement.querySelector('.pictures__image');
 
-        trashButton.addEventListener('click', this._deleteCard);
+        trashButton.addEventListener('click', () => {
+            this._handleDeleteCardClick(this.id());
+            this._deleteCard;
+        });
+
         likeButton.addEventListener('click', this._toggleButton);
+
         linkImage.addEventListener('click', () => {
-            this._handleCardClick(this._src, this._text)
+            this._handleCardClick(this._link, this._name)
         });
     }
 
@@ -41,8 +52,8 @@ class Card {
         const linkImage = this._cardElement.querySelector('.pictures__image');
         const titleName = this._cardElement.querySelector('.pictures__title');
 
-        linkImage.src = this._src;
-        titleName.textContent = this._text;
+        linkImage.src = this._link;
+        titleName.textContent = this._name;
 
         this._setEventListeners();
 

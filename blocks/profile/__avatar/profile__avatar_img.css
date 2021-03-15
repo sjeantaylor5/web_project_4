@@ -1,0 +1,13 @@
+.profile__avatar_img {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    margin: auto;
+    opacity: 0;
+    transition: opacity 0.5s linear 0s;
+}
