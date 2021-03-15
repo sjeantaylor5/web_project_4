@@ -24,6 +24,8 @@ const api = new Api({
     }
 });
 
+api.removeCard().then(res => console.log(res));
+
 api.getCardList().then(res => {
     const cardList = new Section({
         data: res,
