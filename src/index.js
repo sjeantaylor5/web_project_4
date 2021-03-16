@@ -4,6 +4,7 @@ import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import PopupDelete from "../components/PopupDelete.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import {
@@ -14,6 +15,7 @@ import {
     editButton,
     addButton,
     editAvatarButton,
+    avatarPic,
 } from "../utils/constants.js";
 
 const api = new Api({
@@ -24,46 +26,58 @@ const api = new Api({
     }
 });
 
-api.removeCard().then(res => console.log(res));
+const userInfo = new UserInfo({
+    userNameSelector: '.profile__title',
+    userDescriptionSelector: '.profile__explorer',
+    nameInput: 'profile-name',
+    descriptionInput: 'profile-text'
 
-api.getCardList().then(res => {
-    const cardList = new Section({
-        data: res,
-        renderer: (data) => {
-            const card = new Card({
-                data,
-                handleCardClick: (name, link) => {
-                    picturePopup.open(name, link);
-                },
-                handleDeleteCardClick: (cardId) => {
-                    api.removeCard(cardId).then(res);
-                }
-            }, ".card-template");
+});
 
-            cardList.addItem(card.generateCard());
-        }
+api.getUserInfo().then(res => {
+    userInfo.setUserInfo(res.name, res.about, res._id);
+    avatarPic.src = res.avatar;
 
-    }, ".pictures__list");
-
-    cardList.renderItems();
-
-    const addpicPopup = new PopupWithForm({
-        popupSelector: '.popup_type_addpic',
-        handleFormSubmit: (data) => {
-            api.addCard(data).then(res => {
+    api.getCardList().then(res => {
+        const cardList = new Section({
+            data: res,
+            renderer: (data) => {
                 const card = new Card({
                     data,
                     handleCardClick: (name, link) => {
                         picturePopup.open(name, link);
+                    },
+                    handleDeleteCardClick: () => {
+                        deleteCard.setDeleteId(data._id);
+                        deleteCard.open();
                     }
-                }, ".card-template");
-                cardList.prependItem(card.generateCard())
-            });
-        },
-        openButton: addButton
+                }, ".card-template", api);
+
+                cardList.addItem(card.generateCard(userInfo.id));
+            }
+
+        }, ".pictures__list");
+
+        cardList.renderItems();
+
+        const addpicPopup = new PopupWithForm({
+            popupSelector: '.popup_type_addpic',
+            handleFormSubmit: (data) => {
+                return api.addCard(data).then(res => {
+                    const card = new Card({
+                        data: res,
+                        handleCardClick: (name, link) => {
+                            picturePopup.open(name, link);
+                        }
+                    }, ".card-template", api);
+                    cardList.prependItem(card.generateCard(userInfo.id))
+                });
+            },
+            openButton: addButton
+        });
+        addpicPopup.setEventListeners();
     });
-    addpicPopup.setEventListeners();
-})
+});
 
 const editFormValidator = new FormValidator(defaultConfig, profileForm);
 editFormValidator.enableValidation();
@@ -74,22 +88,12 @@ addFormValidator.enableValidation();
 const avatarFormValidator = new FormValidator(defaultConfig, avatarForm);
 avatarFormValidator.enableValidation();
 
-const userInfo = new UserInfo({
-    userNameSelector: '.profile__title',
-    userDescriptionSelector: '.profile__explorer'
-});
-
-api.getUserInfo().then(res => {
-    userInfo.setUserInfo({
-        name: res.name,
-        description: res.about
-    })
-});
-
 const editPopup = new PopupWithForm({
     popupSelector: '.popup_type_profile',
     handleFormSubmit: ({ name, description }) => {
-        userInfo.setUserInfo(name, description)
+        return api.setUserInfo({ name, about: description }).then(res => {
+            userInfo.setUserInfo(res.name, res.about, res._id)
+        })
     },
     openButton: editButton
 });
@@ -97,8 +101,10 @@ editPopup.setEventListeners();
 
 const editAvatar = new PopupWithForm({
     popupSelector: '.popup_type_avatar',
-    handleFormSubmit: (avatar) => {
-        api.setUserAvatar(avatar);
+    handleFormSubmit: (res) => {
+        return api.setUserAvatar({ avatar: res.link }).then(res => {
+            avatarPic.src = res.avatar
+        })
     },
     openButton: editAvatarButton
 });
@@ -106,3 +112,6 @@ editAvatar.setEventListeners();
 
 const picturePopup = new PopupWithImage('.popup_type_image');
 picturePopup.setEventListeners();
+
+const deleteCard = new PopupDelete('.popup_type_delete', api);
+deleteCard.setEventListeners();

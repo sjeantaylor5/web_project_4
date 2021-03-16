@@ -42,10 +42,10 @@
             <form action="#" method="POST" class="popup__container" name="profileForm">
                 <button class="popup__close-btn" type="button"><img class="popup__close-img" src="../images/Close-button.svg" alt="Close Button"></button>
                 <h3 class="popup__title">Edit profile</h3>
-                <input id="profile-name" class="popup__input" type="text" value="Jacques Cousteau" placeholder="Name" name="name" required maxlength="40" minlength="2">
+                <input id="profile-name" class="popup__input" type="text" placeholder="Name" name="name" required maxlength="40" minlength="2">
                 <span id="profile-name-error" class="popup__error"></span>
 
-                <input id="profile-text" class="popup__input" type="text" value="Explorer" placeholder="About me" name="description" required maxlength="200" minlength="2">
+                <input id="profile-text" class="popup__input" type="text" placeholder="About me" name="description" required maxlength="200" minlength="2">
                 <span id="profile-text-error" class="popup__error"></span>
 
                 <button type="submit" class="popup__submit">Save</button>
@@ -92,7 +92,7 @@
             <form action="#" method="POST" class="popup__container popup__container_type_delete" name="deleteCard">
                 <button class="popup__close-btn" type="button"><img class="popup__close-img" src="../images/Close-button.svg" alt="Close Button"></button>
                 <h3 class="popup__title">Are you sure?</h3>
-                <button type="submit" class="popup__submit">Yes</button>
+                <button type="button" class="popup__submit popup__submit_type_delete">Yes</button>
             </form>
         </div>
     </div>
@@ -101,7 +101,10 @@
             <button class="pictures__trash" type="button"></button>
             <img class="pictures__image" src="//:0" alt="#">
             <h2 class="pictures__title"></h2>
-            <button class="pictures__like" type="button"></button>
+            <div class="pictures__box">
+              <button class="pictures__like" type="button"></button>
+              <p class="pictures__counter">0</p>
+            </div>
         </li>
     </template>
 </body>

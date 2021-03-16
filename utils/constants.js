@@ -10,6 +10,7 @@ export const defaultConfig = {
 export const addCard = document.querySelector('.popup_type_addpic');
 export const profilePopup = document.querySelector('.popup_type_profile');
 export const avatarPopup = document.querySelector('.popup_type_avatar');
+export const avatarPic = document.querySelector('.profile__avatar');
 
 export const addCardForm = addCard.querySelector('.popup__container');
 export const profileForm = profilePopup.querySelector('.popup__container');

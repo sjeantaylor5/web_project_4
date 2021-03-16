@@ -5,6 +5,8 @@
 @import url(./__image/pictures__image.css);
 @import url(./__trash/pictures__trash.css);
 @import url(./__list/pictures__list.css);
+@import url(./__counter/pictures__counter.css);
+@import url(./__box/pictures__box.css);
 .pictures {
     max-width: calc(1280px - (200px*2));
     display: grid;
