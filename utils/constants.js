@@ -18,4 +18,4 @@ export const avatarForm = avatarPopup.querySelector('.popup__container');
 
 export const editButton = document.querySelector('.profile__edit-btn');
 export const addButton = document.querySelector('.profile__add-btn');
-export const editAvatarButton = document.querySelector('.profile__avatar_btn');
+export const editAvatarButton = document.querySelector('.profile__avatar-btn');
