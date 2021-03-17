@@ -21,10 +21,9 @@ class Card {
         return picturesTemplate;
     }
 
-    _deleteCard(event) {
-        const deleted = event.target.parentElement;
+    deleteCard() {
         const list = document.querySelector('.pictures__list');
-        list.removeChild(deleted);
+        list.removeChild(this._cardElement);
     }
 
     _toggleButton(event) {

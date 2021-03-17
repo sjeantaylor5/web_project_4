@@ -7,15 +7,14 @@ class PopupDelete extends Popup {
         this._api = api;
     }
 
-    setDeleteId(id) {
-        this._id = id;
+    setDeleteFunction(deleteFunction) {
+        this._deleteFunction = deleteFunction;
     }
 
     setEventListeners() {
         super.setEventListeners();
         this._button.addEventListener('click', () => {
-            this._api.removeCard(this._id);
-            this.close();
+            this._deleteFunction();
         })
     }
 }
