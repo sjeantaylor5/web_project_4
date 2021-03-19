@@ -9,8 +9,7 @@ class Api {
         return fetch(this._baseUrl + "/cards", {
                 headers: this._headers
             })
-            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)))
-            .catch((err) => console.log(err));
+            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)));
     }
 
     // GET https://around.nomoreparties.co/v1/groupId/users/me
@@ -18,8 +17,7 @@ class Api {
         return fetch(this._baseUrl + "/users/me", {
                 headers: this._headers
             })
-            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)))
-            .catch((err) => console.log(err));
+            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)));
     }
 
     //POST https://around.nomoreparties.co/v1/groupId/cards
@@ -32,8 +30,7 @@ class Api {
                     link
                 })
             })
-            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)))
-            .catch((err) => console.log(err));
+            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)));
     }
 
     //DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
@@ -42,8 +39,7 @@ class Api {
                 method: "DELETE",
                 headers: this._headers
             })
-            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)))
-            .catch((err) => console.log(err));
+            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)));
     }
 
     //PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
@@ -52,8 +48,7 @@ class Api {
                 method: "PUT",
                 headers: this._headers
             })
-            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)))
-            .catch((err) => console.log(err));
+            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)));
     }
 
     //DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
@@ -62,8 +57,7 @@ class Api {
                 method: "DELETE",
                 headers: this._headers
             })
-            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)))
-            .catch((err) => console.log(err));
+            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)));
     }
 
 
@@ -77,8 +71,7 @@ class Api {
                     about
                 })
             })
-            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)))
-            .catch((err) => console.log(err));
+            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)));
     }
 
 
@@ -91,8 +84,7 @@ class Api {
                     avatar
                 })
             })
-            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)))
-            .catch((err) => console.log(err));
+            .then(res => res.ok ? res.json() : Promise.reject(new Error("Error!" + res.statusText)));
     }
 
 

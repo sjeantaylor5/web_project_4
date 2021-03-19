@@ -16,14 +16,13 @@ class Card {
     }
 
     _getCardTemplate() {
-        const picturesTemplate = document.querySelector(this._templateSelector).content.querySelector('.picture');
+        const picturesTemplate = document.querySelector(this._templateSelector).content.cloneNode(true).querySelector('.picture');
 
         return picturesTemplate;
     }
 
     deleteCard() {
-        const list = document.querySelector('.pictures__list');
-        list.removeChild(this._cardElement);
+        this._cardElement.remove();
     }
 
     _toggleButton(event) {
@@ -74,7 +73,7 @@ class Card {
     }
 
     generateCard(userId) {
-        this._cardElement = this._getCardTemplate().cloneNode(true);
+        this._cardElement = this._getCardTemplate();
 
         const linkImage = this._cardElement.querySelector('.pictures__image');
         const titleName = this._cardElement.querySelector('.pictures__title');
